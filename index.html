@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LG</title>
     <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.css" />
+    <script src="../script/jquery-1.12.4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.js"></script>
 </head>
 <body>
     <div id="wrap">
@@ -22,13 +27,13 @@
                 <nav class="gnb-container">
                     <div id="p_menu" class="menu-list clfix">
                         <a href="#" class="item item01"><span class="txt">LG 소개</span></a>
-                        <div class="sub-list">
-                            <a href="#" class="sub-item"><span class="txt">LG Way</span></a>
-                            <a href="#" class="sub-item"><span class="txt">CI</span></a>
-                            <a href="#" class="sub-item"><span class="txt">역사</span></a>
-                            <a href="#" class="sub-item"><span class="txt">주요 계열사</span></a>
-                            <a href="#" class="sub-item"><span class="txt">LG사이언스파크</span></a>
-                        </div>
+                            <div class="sub-list">
+                                <a href="#" class="sub-item"><span class="txt">LG Way</span></a>
+                                <a href="#" class="sub-item"><span class="txt">CI</span></a>
+                                <a href="#" class="sub-item"><span class="txt">역사</span></a>
+                                <a href="#" class="sub-item"><span class="txt">주요 계열사</span></a>
+                                <a href="#" class="sub-item"><span class="txt">LG사이언스파크</span></a>
+                            </div>
                         <a href="#" class="item item02"><span class="txt">미디어</span></a>
                         <div class="sub-list">
                             <a href="#" class="sub-item"><span class="txt">ESG 소식</span></a>
@@ -60,10 +65,10 @@
                         <span class="visual-l"></span>
                         <span class="visual-g"></span>
                         <div class="main-image-area">
-                            <img src="/images/40193.jpg" alt="" class="on">
-                            <img src="/images/40194.jpg" alt="" class="off">
-                            <img src="/images/40195.jpg" alt="" class="off">
-                            <img src="/images/40196.jpg" alt="" class="off">
+                            <img src="/images/40193.jpg" alt="">
+                            <img src="/images/40194.jpg" alt="">
+                            <img src="/images/40195.jpg" alt="">
+                            <img src="/images/40196.jpg" alt="">
                         </div>
                         <button class="main-scroll">
                             <span class="ui-ani-span"></span>
@@ -270,9 +275,9 @@
                 </div>
                 <div id="fp-nav">
                     <ul>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#"class="active">3</a></li>
+                        <li><a href="#" class="active">1</a></li>
+                        <li><a href="#" class="">2</a></li>
+                        <li><a href="#"class="">3</a></li>
                     </ul>
                 </div>
             </div>
@@ -293,5 +298,79 @@
             </div>
         </div>
     </div>
+    <script>
+        $('#uiFullGroup').fullpage({
+            //options here
+            autoScrolling: true,
+            scrollHorizontally: true,
+            menu: '.nav',
+            // anchors: ['page1', 'page2', 'page3'],
+            // navigation: true
+        });
+
+        $('.main-image-area > img:gt(0)').hide();
+
+        setInterval(function(){
+            $('.main-image-area > img:first')
+                .fadeOut(1000)
+                .next()
+                .fadeIn(1000)
+                .end()
+                .appendTo('.main-image-area');
+        },3000);
+
+        $('..menu-list .item').hover(function(){
+            $(this).addClass('active')
+            $(this).find('.sub-list').addClass('active')
+        }, function(){
+            $(this).fins('.sub-list').removeClass('active')
+        })
+
+        if($(".section:first-chid").hasClass("active") === true) {
+            $(".header-content")
+                .css("border-bottom","0")
+                .css("height","100px");
+            $(".logo")
+                .css("left","100px");
+            $(".language")
+                .css("right","160px")
+                .css("top","36px");
+            $('#footer').css("display","none");
+        } else {
+            $(".header-content")
+                .css("border-bottom","1px solid #e5e5e5")
+                .css("height","60px");
+            $(".logo")
+                .css("left","40px");
+            $(".language")
+                .css("right","99px")
+                .css("top","11px");
+            $('#footer').css("display","block");
+        };
+
+        if($(".section:second-chid").hasClass("active") === true) {
+            $('#footer').css("display","none");
+        } else {
+            $('#footer').css("display","block");
+        };
+
+        if($(".section:first-chid").hasClass("active") === true) {
+            $(".fp-nav > li:first-child").addClass("active")
+        } else {
+            $(".fp-nav > li:first-child").removeClass("active")
+        };
+
+        if($(".section:second-chid").hasClass("active") === true) {
+            $(".fp-nav > li:second-child").addClass("active")
+        } else {
+            $(".fp-nav > li:second-child").removeClass("active")
+        };
+
+        if($(".section:last-chid").hasClass("active") === true) {
+            $(".fp-nav > li:last-child").addClass("active")
+        } else {
+            $(".fp-nav > li:last-child").removeClass("active")
+        };
+    </script>
 </body>
 </html>

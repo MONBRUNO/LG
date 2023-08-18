@@ -243,6 +243,10 @@ article, aside, audio, blockquote, body, canvas, code, dd, details, div, dl, dt,
     background: transparent;
 }
 
+.gnb-container .item.active + .sub-list:before {
+    top: 104px;
+}
+
 .menu-list {
     /* padding-top: 6px; */
     padding-top: 0;
@@ -272,6 +276,15 @@ article, aside, audio, blockquote, body, canvas, code, dd, details, div, dl, dt,
     text-align: center;
     position: relative;
 }
+.menu-list .item.active + .sub-list:before {
+    content: '';
+    width: 100%;
+    height: 46px;
+    background: #eee;
+    display: block;
+    position: fixed;
+    left: 0;
+}
 
 .menu-list .item01 {
     width: 155px;
@@ -287,8 +300,12 @@ article, aside, audio, blockquote, body, canvas, code, dd, details, div, dl, dt,
     font-size: 18px;   
 }
 
+.menu-list .item:hover .txt {
+    color: #bb0841;
+}
+
 .sub-list {
-    display: none;
+    /* display: none; */
     position: absolute;
     left: 590.094px;
     opacity: 1;
@@ -300,6 +317,10 @@ article, aside, audio, blockquote, body, canvas, code, dd, details, div, dl, dt,
     border-top: 0;
     padding: 0;
     background: transparent;
+}
+
+.sub-list.active {
+    display: block;
 }
 
 .gnb-container .menu-list .item.item01 + .sub-list {
@@ -316,6 +337,12 @@ article, aside, audio, blockquote, body, canvas, code, dd, details, div, dl, dt,
     padding: 0 20px;
     position: relative;
     line-height: 50px;
+}
+
+.sub-item:before {
+    content: '';
+    position: absolute;
+    font-size: 0;
 }
 
 .sub-list .txt {
@@ -365,7 +392,7 @@ article, aside, audio, blockquote, body, canvas, code, dd, details, div, dl, dt,
 
 #uiFullGroup > .section:first-child {
     background: #fff;
-    display: none;
+    /* display: none; */
 }
 
 #uiFullGroup > .section {
@@ -400,8 +427,9 @@ article, aside, audio, blockquote, body, canvas, code, dd, details, div, dl, dt,
     z-index: 99;
 }
 
-#uiFullGroup > .section:first-child .main-image-area {
-    position: absolute;
+.main-image-area {
+    /* position: absolute; */
+    position: relative;
     overflow: hidden;
     padding: 0;
     height: 100%;
@@ -414,33 +442,27 @@ article, aside, audio, blockquote, body, canvas, code, dd, details, div, dl, dt,
 
 .main-image-area img {
     z-index: 1;
+    object-fit: cover;
 }
 
-#uiFullGroup > .section:first-child .main-image-area img {
+.main-image-area img {
     position: absolute;
     display: block;
     width: 100%;
     height: 100%;
+    top: 0;
+    left: 0;
 }
 
-#uiFullGroup > .section:first-child .main-image-area img.on {
+/* .main-image-area img.on {
     opacity: 1;
-    /* transition: opacity 1s ease-in-out; */
     -webkit-transition: opacity 1s ease-in-out;
 }
 
-#uiFullGroup > .section:first-child .main-image-area img.off {
+.main-image-area img.off {
     opacity: 0;
-        /* transition: opacity 1s ease-in-out; */
     -webkit-transition: opacity 1s ease-in-out;
-}
-
-#uiFullGroup > .section:first-child .main-image-area img {
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
+} */
 
 .main-scroll {
     opacity: 1;
@@ -507,7 +529,7 @@ article, aside, audio, blockquote, body, canvas, code, dd, details, div, dl, dt,
 
 #uiFullGroup > .section:nth-child(2) {
     background: #fff;
-    display: none;
+    /* display: none; */
 }
 
 #uiFullGroup > .section:nth-child(2) .main-section-content {
