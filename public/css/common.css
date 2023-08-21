@@ -305,7 +305,7 @@ article, aside, audio, blockquote, body, canvas, code, dd, details, div, dl, dt,
 }
 
 .sub-list {
-    /* display: none; */
+    display: none;
     position: absolute;
     left: 590.094px;
     opacity: 1;
